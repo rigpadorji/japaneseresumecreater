@@ -1,0 +1,528 @@
+<html>
+<head>
+<link rel= "stylesheet" href= "./css/resume.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</head>
+<body>
+  
+<div  id="output"></div>
+
+<script>
+var queryString = window.location.search;
+var urlparams =  new URLSearchParams(queryString);
+var year = urlparams.get("year");
+var month = urlparams.get("month");
+var date = urlparams.get("date");
+var furigana = urlparams.get("furigana");
+var romaji = urlparams.get("romaji");
+var dobyear = urlparams.get("dobyear");
+var dobmonth = urlparams.get("dobmonth");
+var dobdate = urlparams.get("dobdate");
+var male = urlparams.get("male");
+var female = urlparams.get("female");
+var addinfurigana= urlparams.get("addinfurigana");
+var addinromaji= urlparams.get("addinromaji");
+var phone = urlparams.get("phone");
+var email = urlparams.get("email");
+var collegeyear1 = urlparams.get("collegeyear1");
+var collegemonth1 = urlparams.get("collegemonth1");
+var collegeyear2 = urlparams.get("collegeyear2");
+var collegemonth2 = urlparams.get("collegemonth2");
+var collegename = urlparams.get("collegename");
+var schoolyear1 = urlparams.get("schoolyear1");
+var schoolmonth1 = urlparams.get("schoolmonth1");
+var schoolyear2 = urlparams.get("schoolyear2");
+var schoolmonth2 = urlparams.get("schoolmonth2");
+var schoolname = urlparams.get("schoolname");
+var skillyear1 = urlparams.get("skillyear1");
+var skillmonth1 = urlparams.get("skillmonth1");
+var skillyear2= urlparams.get("skillyear2");
+var skillmonth2 = urlparams.get("skillmonth2");
+var skillname = urlparams.get("skillname");
+
+var work1year1 = urlparams.get("work1year1");
+var work1month1 = urlparams.get("work1month1");
+var work1year2 = urlparams.get("work1year2");
+var work1month2 = urlparams.get("work1month2");
+var work1name= urlparams.get("work1name");
+
+var work2year1 = urlparams.get("work2year1");
+var work2month1 = urlparams.get("work2month1");
+var work2year2 = urlparams.get("work2year2");
+var work2month2 = urlparams.get("work2month2");
+var work2name= urlparams.get("work2name");
+
+var work3year1 = urlparams.get("work3year1");
+var work3month1 = urlparams.get("work3month1");
+var work3year2 = urlparams.get("work3year2");
+var work3month2 = urlparams.get("work3month2");
+var work3name= urlparams.get("work3name");
+
+var licence1year = urlparams.get("licence1year");
+var licence1month = urlparams.get("licence1month");
+var licence1name = urlparams.get("licence1name");
+
+var licence2year = urlparams.get("licence2year");
+var licence2month = urlparams.get("licence2month");
+var licence2name = urlparams.get("licence2name");
+
+var licence3year = urlparams.get("licence3year");
+var licence3month = urlparams.get("licence3month");
+var licence3name = urlparams.get("licence3name");
+
+var hour = urlparams.get("hour");
+var minute = urlparams.get("minute");
+var marriage= urlparams.get("marriage");
+var childyes = urlparams.get("childyes");
+var child = urlparams.get("child");
+var appealpoint= urlparams.get("appealpoint");
+
+var myImage = urlparams.get("myImage");
+
+
+
+var totextarea = urlparams.get("totextarea");
+
+if (totextarea) {
+  const values = totextarea.split("||");
+  let output = "<ul>";
+  values.forEach(v => {
+    output += "<li>" + v + "</li>";
+  });
+  output += "</ul>";
+  document.getElementById("output").innerHTML = output;
+}
+
+
+
+
+
+
+
+var output = document.getElementById("output");
+output.innerHTML= "<div  class = headdiv>"+
+                                            "<div  class = hdiv1>"+
+                                              "<b>"+  "履歴書"+ "</b>"+ 
+                                              "</div>"+
+                                              
+                                              "<div  class = hdiv2>"+
+                                                "<b>"+  year+"年"+ month + "月"+ date +"日現在" +"</b>"+
+                                              "</div>"+
+
+                                 "</div>"+
+                                 
+                          "<div class=namephoto>"+        
+                                 "<div  class = namediv>"+
+                                 
+                                                                 
+                                             "<div  class = ndiv3>"+
+                                                   "フリガナ"+"&nbsp" +"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+furigana+
+                                              "</div>"+
+                                              
+                                              "<div  class = ndiv4>"+
+                                               "氏名"+"&nbsp"
+                                               +"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+romaji+
+                                              "</div>"+
+                                              
+                                              "<div class = dobdiv>"+
+                                                                  "<div class = 'dobdiv0'>"+
+                                                                     "生年月日"+
+                                                                     "</div>"+
+                                              　　　　　"<div class = 'dobdiv1'>"+
+                                                                    dobyear +"年"　+ dobmonth+　"月"　+　dobdate　+"日"　+
+                                                                  "</div>"+
+                                                                  
+                                                                  "<div class='dobdiv2'>"+
+                                                                  "<span id='maleChar'>"+"男"+"</span>"+"・"+
+                                                                 "<span id='femaleChar'>"+"女"+"</span>"+
+                                                                  "</div>"+
+                                                                   
+                                                                   
+                                                 
+                                              "</div>"+
+                                              
+                                                                                    
+                                              
+                                              
+                             "</div>"+
+                             
+                              "<div class=photo>"+
+                              
+                             "<img id='previewImg' src='" + (myImage || "") + "' alt='Upload your half photo'>"+
+                             
+                             
+                         "</div>"+
+                                          
+                              
+                  "</div>"+  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                      
+                             "<div  class =addressdiv>"+
+                             　　　　　　
+                             　　　　　　"<div class = addressinnerdiv1>"+
+                                                                         "<div class= addressinnerdiv11>"+
+                                                                           "フリガナ"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+"&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+addinfurigana+
+                                                                           "</div>"+
+                                                                            "<div class= addressinnerdiv12>"+
+                                                                            "現住所"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+"&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ "&nbsp"+ addinromaji+
+                                                                            "</div>"+
+                                                      "</div>"+
+                                                    "<div class = addressinnerdiv2>"+
+                                                                            "<div class= addressinnerdiv21>"+
+                                                                            "電話番号："+
+                                                                             "</div>"+
+                                                                             "<div class= addressinnerdiv21>"+
+                                                                             phone+
+                                                                            "</div>"+
+                                                                             "<div class= addressinnerdiv21>"+
+                                                                            "メールアドレス："+
+                                                                             "</div>"+
+                                                                             "<div class= addressinnerdiv21>"+
+                                                                             email+
+                                                                             "</div>"+
+                                                       " </div>"+
+
+                             
+                             "</div>"+
+                             
+                             "<div class = collegediv>"+
+                                                     "<div class = cid1>"+
+                                                     "<b>"+ "年"+ "</b>"+ 
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                        "<b>"+ "月"+ "</b>"+ 
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       "<b>"+  "学歴・職歴"+ "</b>"+ 
+                                                     "</div>"+
+                                "</div>"+                   
+
+                               "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      collegeyear1 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       collegemonth1+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       collegename +"入学"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      collegeyear2 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       collegemonth2+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       collegename +"卒業"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                                "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      schoolyear1 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       schoolmonth1+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       schoolname +"入学"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      schoolyear2 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       schoolmonth2+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       schoolname +"卒業"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                                "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      skillyear1 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       skillmonth1+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       skillname +"入学"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      skillyear2 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       skillmonth2+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       skillname +"卒業"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                             "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                    
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = collegediv>"+
+                                                     "<div class = cid1>"+
+                                                     
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                        
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                    "<b>"+ "＜職歴＞"+  "</b>"+ 
+                                                     "</div>"+
+                                "</div>"+
+                                
+                                "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      work1year1 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       work1month1+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       work1name +"入社"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      work1year2 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       work1month2+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       work1name+"退職"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                               "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      work2year1 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       work2month1+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       work2name +"入社"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      work2year2 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       work2month2+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       work2name +"退職"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                               "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      work3year1 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       work3month1+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       work3name+"入社"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      work3year2 +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                       work3month2+"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       work3name +"退職"+
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = licencediv>"+
+                                                     "<div class = cid1>"+
+                                                     
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                        
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                    "<b>"+ "免許・資格"+  "</b>"+ 
+                                                     "</div>"+
+                                "</div>"+
+                                  "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      licence1year +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                      licence1month +"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       licence1name +
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      licence2year +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                      licence2month +"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       licence2name +
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = collegediv0>"+
+                                                     "<div class = cid1>"+
+                                                      licence3year +"年"+
+                                                       "</div>"+
+                                                      "<div class = cid2>"+
+                                                      licence3month +"月"+
+                                                        "</div>"+
+                                                     "<div class = cid3>"+
+                                                       licence3name +
+                                                     "</div>"+
+                             
+                             "</div>"+
+                              "<div class = appealdiv>"+
+                                                     "<div class = apd1>"+
+                                                               "<div class=apd11>" +"<b>"+"志望の動機、アピールポイントなど"+"</b>"+"</div>"+
+                                                                "<div  class=apd12>" +appealpoint + "</div>"+
+                                                      
+                                                       "</div>"+
+                                                       
+                                                      "<div class = apd2>"+
+                                                                  "<div class = apd21>"+
+                                                                   " 通勤時間"+
+                                                                         "<div>"+"<br>"+"約"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+hour+"時間"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+minute+ "分"+"</div>"+
+                                                                   "</div>"+
+                                                                   
+                                                                    "<div class = apd21>"+
+                                                                     " 扶養家族数（配偶者を除く）"+
+                                                                     "<br>"+  "<br>" + "<br>"+child+"人"+
+                                                                   "</div>"+
+                                                                   
+                                                                   "<div class = apd22>"+
+                                                                                   "<div class= apd221>"+
+                                                                                             " 配偶者"+
+                                                                                             
+                                                                                             "<div class='married'>"+
+                                                                                              "<span id='married'>"+"有"+"</span>"+"・"+
+                                                                                              "<span id='umarried'>"+"無"+"</span>"+
+                                                        
+                                                                                               "</div>"+  
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                             
+                                                                                    "</div>"+
+                                                                                     "<div  class= apd221>"+
+                                                                                                 "  配偶者の扶養義務 "+
+                                                                                                 
+                                                                                                 "<div class='dependent'>"+
+                                                                                              "<span id='dependent'>"+"有"+"</span>"+"・"+
+                                                                                              "<span id='undependent'>"+"無"+"</span>"+
+                                                                                               "</div>"+ 
+                                                                                               
+                                                                                      "</div>"+
+
+                                                                   "</div>"+
+                                                                  
+                                                        
+                                                        "</div>"+
+                                                        
+                                                                 
+                                                        
+                                     
+                                "</div>"
+                                
+                                
+                                
+
+</script>
+
+
+
+
+
+
+
+<!--downloading as pdf-->
+<div class="submitbutton">
+     <button id="downloadBtn">Download As PDF</button>
+   </div>
+
+
+<script>
+document.getElementById("downloadBtn").addEventListener("click", function () {
+    // Select the resume container
+    var element = document.getElementById("output");
+
+    // PDF options
+    var opt = {
+        margin:       0.5,
+        filename:     'Resume.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+
+    // Generate the PDF
+    html2pdf().set(opt).from(element).save();
+});
+</script>
+
+
+
+
+<script  src ="./javascript/selectgender.js"></script>
+<script  src ="./javascript/status.js"></script>
+<script  src ="./javascript/dependent.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
