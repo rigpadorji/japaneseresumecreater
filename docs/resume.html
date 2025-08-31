@@ -9,90 +9,70 @@
 <div  id="output"></div>
 
 <script>
-var queryString = window.location.search;
-var urlparams =  new URLSearchParams(queryString);
-var year = urlparams.get("year");
-var month = urlparams.get("month");
-var date = urlparams.get("date");
-var furigana = urlparams.get("furigana");
-var romaji = urlparams.get("romaji");
-var dobyear = urlparams.get("dobyear");
-var dobmonth = urlparams.get("dobmonth");
-var dobdate = urlparams.get("dobdate");
-var male = urlparams.get("male");
-var female = urlparams.get("female");
-var addinfurigana= urlparams.get("addinfurigana");
-var addinromaji= urlparams.get("addinromaji");
-var phone = urlparams.get("phone");
-var email = urlparams.get("email");
-var collegeyear1 = urlparams.get("collegeyear1");
-var collegemonth1 = urlparams.get("collegemonth1");
-var collegeyear2 = urlparams.get("collegeyear2");
-var collegemonth2 = urlparams.get("collegemonth2");
-var collegename = urlparams.get("collegename");
-var schoolyear1 = urlparams.get("schoolyear1");
-var schoolmonth1 = urlparams.get("schoolmonth1");
-var schoolyear2 = urlparams.get("schoolyear2");
-var schoolmonth2 = urlparams.get("schoolmonth2");
-var schoolname = urlparams.get("schoolname");
-var skillyear1 = urlparams.get("skillyear1");
-var skillmonth1 = urlparams.get("skillmonth1");
-var skillyear2= urlparams.get("skillyear2");
-var skillmonth2 = urlparams.get("skillmonth2");
-var skillname = urlparams.get("skillname");
+// ✅ Get data from localStorage instead of URL
+const data = JSON.parse(localStorage.getItem("resumeData")) || {};
 
-var work1year1 = urlparams.get("work1year1");
-var work1month1 = urlparams.get("work1month1");
-var work1year2 = urlparams.get("work1year2");
-var work1month2 = urlparams.get("work1month2");
-var work1name= urlparams.get("work1name");
-
-var work2year1 = urlparams.get("work2year1");
-var work2month1 = urlparams.get("work2month1");
-var work2year2 = urlparams.get("work2year2");
-var work2month2 = urlparams.get("work2month2");
-var work2name= urlparams.get("work2name");
-
-var work3year1 = urlparams.get("work3year1");
-var work3month1 = urlparams.get("work3month1");
-var work3year2 = urlparams.get("work3year2");
-var work3month2 = urlparams.get("work3month2");
-var work3name= urlparams.get("work3name");
-
-var licence1year = urlparams.get("licence1year");
-var licence1month = urlparams.get("licence1month");
-var licence1name = urlparams.get("licence1name");
-
-var licence2year = urlparams.get("licence2year");
-var licence2month = urlparams.get("licence2month");
-var licence2name = urlparams.get("licence2name");
-
-var licence3year = urlparams.get("licence3year");
-var licence3month = urlparams.get("licence3month");
-var licence3name = urlparams.get("licence3name");
-
-var hour = urlparams.get("hour");
-var minute = urlparams.get("minute");
-var marriage= urlparams.get("marriage");
-var childyes = urlparams.get("childyes");
-var child = urlparams.get("child");
-var appealpoint= urlparams.get("appealpoint");
-
-var myImage = urlparams.get("myImage");
-
-
-
-var totextarea = urlparams.get("totextarea");
-
-if (totextarea) {
-  const values = totextarea.split("||");
-  let output = "<ul>";
-  values.forEach(v => {
-    output += "<li>" + v + "</li>";
-  });
-  output += "</ul>";
-  document.getElementById("output").innerHTML = output;
-}
+// Now you can use data.year, data.romaji, etc.
+var year = data.year || "";
+var month = data.month || "";
+var date = data.date || "";
+var furigana = data.furigana || "";
+var romaji = data.romaji || "";
+var dobyear = data.dobyear || "";
+var dobmonth = data.dobmonth || "";
+var dobdate = data.dobdate || "";
+var male = data.sex === "male" ? "checked" : "";
+var female = data.sex === "female" ? "checked" : "";
+var addinfurigana= data.addinfurigana || "";
+var addinromaji= data.addinromaji || "";
+var phone = data.phone || "";
+var email = data.email || "";
+var collegeyear1 = data.collegeyear1 || "";
+var collegemonth1 = data.collegemonth1 || "";
+var collegeyear2 = data.collegeyear2 || "";
+var collegemonth2 = data.collegemonth2 || "";
+var collegename = data.collegename || "";
+var schoolyear1 = data.schoolyear1 || "";
+var schoolmonth1 = data.schoolmonth1 || "";
+var schoolyear2 = data.schoolyear2 || "";
+var schoolmonth2 = data.schoolmonth2 || "";
+var schoolname = data.schoolname || "";
+var skillyear1 = data.skillyear1 || "";
+var skillmonth1 = data.skillmonth1 || "";
+var skillyear2= data.skillyear2 || "";
+var skillmonth2 = data.skillmonth2 || "";
+var skillname = data.skillname || "";
+var work1year1 = data.work1year1 || "";
+var work1month1 = data.work1month1 || "";
+var work1year2 = data.work1year2 || "";
+var work1month2 = data.work1month2 || "";
+var work1name= data.work1name || "";
+var work2year1 = data.work2year1 || "";
+var work2month1 = data.work2month1 || "";
+var work2year2 = data.work2year2 || "";
+var work2month2 = data.work2month2 || "";
+var work2name= data.work2name || "";
+var work3year1 = data.work3year1 || "";
+var work3month1 = data.work3month1 || "";
+var work3year2 = data.work3year2 || "";
+var work3month2 = data.work3month2 || "";
+var work3name= data.work3name || "";
+var licence1year = data.licence1year || "";
+var licence1month = data.licence1month || "";
+var licence1name = data.licence1name || "";
+var licence2year = data.licence2year || "";
+var licence2month = data.licence2month || "";
+var licence2name = data.licence2name || "";
+var licence3year = data.licence3year || "";
+var licence3month = data.licence3month || "";
+var licence3name = data.licence3name || "";
+var hour = data.hour || "";
+var minute = data.minute || "";
+var marriage= data.marriage || "";
+var childyes = data.childyes || "";
+var child = data.child || "";
+var appealpoint= data.appealpoint || "";
+var myImage = data.myImage || "";
 
 
 
