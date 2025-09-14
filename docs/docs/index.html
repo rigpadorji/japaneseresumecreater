@@ -1,0 +1,68 @@
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #63ffff;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .maindiv {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      background-color: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e68900;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="maindiv">
+    <div class="welcomediv">
+      <h1>履歴書クリエーター by リグパ・ドルジ へようこそ <br>Welcome to Resume Creator by Rigpa Dorji</h1> 
+        
+      <label>以下のボタンをクリックしてはじめましょう <br>Let’s create the resume by clicking the button below</label>
+      
+      <div>
+        <button type="button" onclick="window.location.href='welcomepage.html'">
+          履歴書作成 (Create Resume)
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
