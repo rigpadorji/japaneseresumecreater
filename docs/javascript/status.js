@@ -1,23 +1,16 @@
-function circleStatus(selectedStatus) {
+document.addEventListener("DOMContentLoaded", function() {
+  const data = JSON.parse(localStorage.getItem("resumeData")) || {};
   const married = document.getElementById("married");
-  const unmarried = document.getElementById("umarried");
-  //const divorced = document.getElementById("divorced");
+  const unmarried = document.getElementById("unmarried");
 
   // Remove previous circles
   married.classList.remove("circled");
   unmarried.classList.remove("circled");
 
-  // Add circle based on selection
-  if (selectedStatus === "Married") {
+  // Circle the saved value
+  if (data.marriage === "Married") {
     married.classList.add("circled");
-  } else if(selectedStatus === "Unmarried") {
+  } else if (data.marriage === "Unmarried") {
     unmarried.classList.add("circled");
   }
-}
-
-// On page load: read URL param and update
-const selectedStatus = urlParams.get("marriage");
-
-if (selectedStatus) {
-  circleStatus(selectedStatus);
-}
+});

@@ -278,8 +278,8 @@
                                      <div  class ="timediv">
                                     <p><b>婚姻状況（Maratal status）</b></p>
                                     <select  id ="marriage">
-                                    <option id ="married" value="Married">Married</option>
-                                   <option  id ="unmarried" value="Unmarried"> Unmarried</option>
+                                    <option id ="married" name="marriage" value="Married">Married</option>
+                                   <option  id ="unmarried" name="marriage" value="Unmarried"> Unmarried</option>
                                   
                                   </select>                                    
                                     </div>
@@ -359,7 +359,7 @@
   	}
   	
   }
-    const startYear = 1900;
+    const startYear = 1990;
   const currentYear= new Date().getFullYear();
   populateYearDropdowm(startYear, currentYear);
   

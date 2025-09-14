@@ -276,7 +276,7 @@ output.innerHTML= "<div  class = headdiv>"+
                                                         
                                                         "</div>"+
                                                      "<div class = cid3>"+
-                                                    "<b>"+ "＜職歴＞"+  "</b>"+ 
+                                                    "<b>"+ "職歴"+  "</b>"+ 
                                                      "</div>"+
                                 "</div>"+
                                 
@@ -407,38 +407,59 @@ output.innerHTML= "<div  class = headdiv>"+
                                                        "</div>"+
                                                        
                                                       "<div class = apd2>"+
-                                                                  "<div class = apd21>"+
+                                                                  "<div class = apd21>"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+
                                                                    " 通勤時間"+
                                                                          "<div>"+"<br>"+"約"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+hour+"時間"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+minute+ "分"+"</div>"+
                                                                    "</div>"+
                                                                    
                                                                     "<div class = apd21>"+
                                                                      " 扶養家族数（配偶者を除く）"+
-                                                                     "<br>"+  "<br>" + "<br>"+child+"人"+
+                                                                     "<br>"+  "<br>"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+"&nbsp"+child+"人"+
                                                                    "</div>"+
                                                                    
                                                                    "<div class = apd22>"+
                                                                                    "<div class= apd221>"+
                                                                                              " 配偶者"+
-                                                                                             
-                                                                                             "<div class='married'>"+
-                                                                                              "<span id='married'>"+"有"+"</span>"+"・"+
-                                                                                              "<span id='umarried'>"+"無"+"</span>"+
+                                                                                              "<div class='married'>"+
+                                                                                                     "<div class='married1'>"+
+                                                                                                       "<span id='married'>"+"有"+"</span>"+
+                                                                                                        "</div>"+  
+                                                                                                       
+                                                                                                       "<div class='married2'>"+
+                                                                                                       "・"+
+                                                                                              
+                                                                                                      "</div>"+  
+                                                                                                     "<div class='married3'>"+
+
+                                                                                                        "<span id='unmarried'>"+"無"+"</span>"+
                                                         
-                                                                                               "</div>"+  
+                                                                                                   "</div>"+  
+                                                                                                   
+                                                                                              "</div>"+  
                                                                                              
                                                                                              
                                                                                              
                                                                                              
                                                                                              
                                                                                     "</div>"+
+                                                                                    
+                                                                                    
                                                                                      "<div  class= apd221>"+
                                                                                                  "  配偶者の扶養義務 "+
-                                                                                                 
                                                                                                  "<div class='dependent'>"+
-                                                                                              "<span id='dependent'>"+"有"+"</span>"+"・"+
-                                                                                              "<span id='undependent'>"+"無"+"</span>"+
-                                                                                               "</div>"+ 
+                                                                                                 
+                                                                                                   "<div class='dependent1'>"+
+                                                                                                     "<span id='dependent'>"+"有"+"</span>"+
+                                                                                                    "</div>"+ 
+                                                                                              
+                                                                                                    "<div class='dependent2'>"+
+                                                                                                     "・"+
+                                                                                                     "</div>"+ 
+                                                                                               
+                                                                                                    "<div class='dependent3'>"+
+                                                                                                     "<span id='undependent'>"+"無"+"</span>"+
+                                                                                                   "</div>"+ 
+                                                                                                 "</div>"+ 
                                                                                                
                                                                                       "</div>"+
 
@@ -471,22 +492,21 @@ output.innerHTML= "<div  class = headdiv>"+
 
 <script>
 document.getElementById("downloadBtn").addEventListener("click", function () {
-    // Select the resume container
     var element = document.getElementById("output");
 
-    // PDF options
     var opt = {
-        margin:       0.5,
+        margin:       [10, 10, 10, 10], // top, left, bottom, right in mm
         filename:     'Resume.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2 },
-        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['css', 'legacy'] } // enable automatic page breaks
     };
 
-    // Generate the PDF
     html2pdf().set(opt).from(element).save();
 });
 </script>
+
 
 
 

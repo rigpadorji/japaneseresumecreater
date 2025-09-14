@@ -1,38 +1,28 @@
 body{
-/*background-color: lightwhite;*/
-  margin: 0;
+margin: 0;
   padding: 0;
-  font-family: "Arial", sans-serif;
-  background: #f5f5f5; /* light gray background */
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
+  overflow-y: auto; /* scroll if content is taller */
   }
   
  
   
 #output{
-/*   padding-top:40px;
-   padding-left:60px;*/
-   
-  width: 210mm;   /* A4 width */
-/*  height: 297mm;  /* A4 height */*/
-   height: 100%;
-  margin: auto;
-  background: white;
-  border: 1px solid black; /* optional, just to see border */
-  box-sizing: border-box;
-   padding-top: 30px;
-
-   
-   
+    width: 190mm; /* leave space for padding + border */
+    padding: 10mm; /* reduce padding if needed */
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid black;
+    margin: 0 auto;
 }
 
 .headdiv{
 display:flex;
-
-
 }
 .hdiv1{
 
@@ -88,16 +78,16 @@ border-top:1px solid black;
 }
 
 .dobdiv0{
-padding-left:10px;
+padding-left:5px;
 }
 
 
 .dobdiv1{
-margin-left:150px;
+margin-left:110px;
 }
 
 .dobdiv2{
-margin-left:140px;
+margin-left:110px;
 width:60px;
 font-size:20px;
 display:flex;
@@ -146,6 +136,7 @@ width:72%;
 }
 .addressinnerdiv2{
 width:28%;
+border-right:1px solid black;
 
 }
 
@@ -237,6 +228,7 @@ padding-left:20px;
 padding-left:5px;
 border:1px solid black;
 height:30%;
+font-size:14px;
 }
 .apd22{
 border-left:1px solid black;
@@ -248,11 +240,23 @@ text-align:center;
 width:100%;
 border:1px solid black;
 height:115px;
+font-size:14px;
+
 }
 .married{
-padding-top:30px;
-font-size:15px;
+padding-top:35px;
+padding-left:10px;
+display:flex;
 }
+
+.dependent{
+padding-top:15px;
+padding-left:10px;
+display:flex;
+
+}
+
+
 .submitbutton{
 padding-top:500px;
 cursor:pointer;

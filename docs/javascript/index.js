@@ -8,7 +8,7 @@
   	}
   	
   }
-    const startY = 1900;
+    const startY = 1990;
   const currentY= new Date().getFullYear();
   populateYearOfBirth(startY, currentY);
   
@@ -55,6 +55,8 @@
    			option.value = i;
    			timeSelect.appendChild(option);
    		}
+   		// Set default selected hour to 1
+   		 timeSelect.value = 1;
    		
    	}
    	timedropdown();
@@ -69,6 +71,8 @@
    			option.value = i;
    			timeSelect.appendChild(option);
    		}
+   		// Set default selected hour to 30
+   		 timeSelect.value = 30;
    		
    	}
    	minutedropdown();

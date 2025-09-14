@@ -1,26 +1,18 @@
-<script>
 document.addEventListener("DOMContentLoaded", function() {
-  function circleGender(selectedSex) {
-    const maleChar = document.getElementById("maleChar");
-    const femaleChar = document.getElementById("femaleChar");
+  // Load saved resume data
+  const data = JSON.parse(localStorage.getItem("resumeData")) || {};
 
-    if (!maleChar || !femaleChar) return; // safety
+  const maleChar = document.getElementById("maleChar");
+  const femaleChar = document.getElementById("femaleChar");
 
-    maleChar.classList.remove("circled");
-    femaleChar.classList.remove("circled");
+  if (!maleChar || !femaleChar) return;
 
-    if (selectedSex === "male") {
-      maleChar.classList.add("circled");
-    } else if (selectedSex === "female") {
-      femaleChar.classList.add("circled");
-    }
-  }
+  maleChar.classList.remove("circled");
+  femaleChar.classList.remove("circled");
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const selectedSex = urlParams.get("sex");
-
-  if (selectedSex) {
-    circleGender(selectedSex);
+  if (data.sex === "male") {
+    maleChar.classList.add("circled");
+  } else if (data.sex === "female") {
+    femaleChar.classList.add("circled");
   }
 });
-</script>
